@@ -5,7 +5,6 @@ from flask import Flask, render_template, Response
 from flask_socketio import SocketIO
 from camera import Camera
 from utils import base64_to_pil_image, pil_image_to_base64
-import OpenSSL
 
 
 app = Flask(__name__)
@@ -39,8 +38,7 @@ def gen():
 
     app.logger.info("starting to generate frames!")
     while True:
-        frame = camera.get_frame() 
-        #pil_image_to_base64(camera.get_frame())
+        frame = camera.get_frame() #pil_image_to_base64(camera.get_frame())
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
