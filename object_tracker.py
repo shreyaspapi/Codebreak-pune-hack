@@ -43,7 +43,7 @@ while True:
 	rects = []
 
 	# loop over the detections
-	for i in range(0, detections.shape[2]):
+	for i in range(detections.shape[2]):
 		# filter out weak detections by ensuring the predicted
 		# probability is greater than a minimum threshold
 		if detections[0, 0, i, 2] > 0.5:
